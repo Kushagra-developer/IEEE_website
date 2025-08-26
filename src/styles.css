@@ -584,3 +584,75 @@ a:hover svg {
   opacity: 0.95;
   margin-top: 4px;         /* slight tweak if they look off-center */
 }
+
+
+.footer {
+  background: #000; /* pure black base */
+  color: #fff;
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  z-index: 50;
+  border-top: 1px solid rgba(255, 0, 0, 0.3); /* thin red accent line */
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 18px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footer-brand {
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #fff;
+  text-shadow: 0 0 12px rgba(255, 0, 0, 0.5);
+}
+
+.footer-btn {
+  background: linear-gradient(90deg, #8b0000, #ff1a1a);
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #fff;
+  text-decoration: none;
+  box-shadow: 0 0 14px rgba(255, 0, 0, 0.4);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.footer-btn:hover {
+  transform: scale(1.07);
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.7);
+}
+
+.footer-socials {
+  display: flex;
+  gap: 18px;
+}
+.footer-socials a {
+  color: #aaa;
+  transition: color 0.3s ease, transform 0.2s ease, text-shadow 0.3s ease;
+}
+.footer-socials a:hover {
+  color: #ff3333;
+  transform: scale(1.15);
+  text-shadow: 0 0 12px rgba(255, 0, 0, 0.6);
+}
+
+.footer-bottom {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #888;
+  padding: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(90deg, #0a0a0a, #1a0000); /* subtle red-black blend */
+}
+html, body, #root { height: 100%; }
+.app-shell { min-height: 100%; display: flex; flex-direction: column; }
+.app-main { flex: 1 0 auto; } /* content grows, footer stays at bottom */
