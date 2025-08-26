@@ -572,28 +572,28 @@ a:hover svg {
 
 .inline-logo-row {
   display: flex;
-  align-items: baseline;   /* aligns logos with text baseline */
+  align-items: baseline;   
   justify-content: center;
-  gap: 350px;               /* space between items */
+  gap: 350px;               
 }
 
 .side-logo {
-  height: 60px;            /* very small logos */
+  height: 60px;            
   width: auto;
   object-fit: contain;
   opacity: 0.95;
-  margin-top: 4px;         /* slight tweak if they look off-center */
+  margin-top: 4px;       
 }
 
 
 .footer {
-  background: #000; /* pure black base */
+  background: #000; 
   color: #fff;
   position: sticky;
   bottom: 0;
   width: 100%;
   z-index: 50;
-  border-top: 1px solid rgba(255, 0, 0, 0.3); /* thin red accent line */
+  border-top: 1px solid rgba(255, 0, 0, 0.3); 
 }
 
 .footer-inner {
@@ -651,11 +651,11 @@ a:hover svg {
   color: #888;
   padding: 10px;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
-  background: linear-gradient(90deg, #0a0a0a, #1a0000); /* subtle red-black blend */
+  background: linear-gradient(90deg, #0a0a0a, #1a0000); 
 }
 html, body, #root { height: 100%; }
 .app-shell { min-height: 100%; display: flex; flex-direction: column; }
-.app-main { flex: 1 0 auto; } /* content grows, footer stays at bottom */
+.app-main { flex: 1 0 auto; } 
 
 .inline-logo-row {
   display: flex;
@@ -668,7 +668,143 @@ html, body, #root { height: 100%; }
 
 
 .main-logo {
-  height: 64px;   /* bigger for main HackcelR8 logo */
+  height: 64px;  
   width: auto;
   object-fit: contain;
+}
+
+.countdown {
+  display: inline-flex; gap: 8px; align-items: center;
+  padding: 8px 12px; border-radius: 999px;
+  background: rgba(0,0,0,.4);
+  border: 1px solid rgba(255,255,255,.15);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 0 18px rgba(255,0,0,.18);
+  font-weight: 700;
+}
+.countdown span { font-variant-numeric: tabular-nums; }
+.countdown b { opacity: .6; }
+
+
+.inline-logo-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+.side-logo {
+  height: 26px;           
+  width: auto;
+  object-fit: contain;
+  opacity: 0.95;
+}
+
+.main-logo-wrap {
+  position: relative;
+  display: inline-block;
+}
+.main-logo {
+  height: 64px;           
+  width: auto;
+  object-fit: contain;
+}
+.main-logo-wrap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 45%, rgba(255,255,255,.22), transparent 55%);
+  transform: translateX(-120%);
+  mix-blend-mode: screen;
+  filter: blur(1px);
+  animation: logoShine 5s linear infinite;
+}
+@keyframes logoShine {
+  0%   { transform: translateX(-120%) rotate(0.001deg); }
+  60%  { transform: translateX(140%)  rotate(0.001deg); }
+  100% { transform: translateX(140%)  rotate(0.001deg); }
+}
+
+.magnet-wrap { display: inline-block; will-change: transform; }
+
+.countdown {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(0,0,0,.4);
+  border: 1px solid rgba(255,255,255,.15);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 0 18px rgba(255,0,0,.18);
+  font-weight: 700;
+}
+.countdown span { font-variant-numeric: tabular-nums; }
+.countdown b { opacity: .6; }
+
+/* marquee strip (replace SPONSOR with small logos later) */
+.marquee {
+  overflow: hidden;
+  width: 100%;
+  margin-top: 28px;
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+.marquee-track {
+  display: flex;
+  gap: 24px;
+  white-space: nowrap;
+  animation: marquee 20s linear infinite;
+}
+.marquee-item {
+  padding: 10px 18px;
+  border-radius: 12px;
+  background: rgba(0,0,0,.35);
+  border: 1px solid rgba(255,255,255,.12);
+  color: #fff;
+  opacity: .85;
+  filter: grayscale(100%);
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.spark-field {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+.spark {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: #ff3b3b;
+  border-radius: 999px;
+  box-shadow: 0 0 8px rgba(255,0,0,.8);
+  animation: float var(--d,10s) linear infinite;
+  top: var(--t,50%);
+  left: var(--l,50%);
+  opacity: .6;
+}
+.spark:nth-child(odd) {
+  background: #fff;
+  box-shadow: 0 0 8px rgba(255,255,255,.6);
+}
+.spark-field .spark { --i: .1; --j: .2; }
+.spark-field .spark:nth-child(3n)  { --i: .3; --j: .7; }
+.spark-field .spark:nth-child(5n)  { --i: .6; --j: .4; }
+.spark-field .spark:nth-child(7n)  { --i: .8; --j: .9; }
+.spark-field .spark:nth-child(11n) { --i: .2; --j: .5; }
+.spark {
+  --t: calc(5% + 90% * var(--i));
+  --l: calc(5% + 90% * var(--j));
+  --d: calc(8s + 8s * var(--i));
+}
+@keyframes float {
+  from { transform: translateY(20px); opacity: .2; }
+  50%  { opacity: .8; }
+  to   { transform: translateY(-40px); opacity: .2; }
 }
