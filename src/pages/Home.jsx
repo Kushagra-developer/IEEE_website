@@ -1,8 +1,9 @@
 import bg from "../assets/home-bg.jpeg";
 import { FaInstagram, FaLinkedin } from "react-icons/fa";
 import { motion } from "framer-motion";
-import ieeeLogo from "../assets/ieee-logo.png";   // 👈 IEEE logo
-import srmLogo from "../assets/srm-logo.png";     // 👈 SRM logo
+import ieeeLogo from "../assets/ieee-logo.png";   // IEEE logo
+import srmLogo from "../assets/srm-logo.png";     // SRM logo
+import hackcelr8Logo from "../assets/hackcelr8-logo.jpeg"; 
 
 export default function Home() {
   return (
@@ -17,7 +18,7 @@ export default function Home() {
           transition={{ duration: 0.8 }}
         >
           <img src={ieeeLogo} alt="IEEE Logo" className="side-logo" />
-          <h1 className="title title-glow">HackcelR8</h1>
+          <img src={hackcelr8Logo} alt="HackcelR8 Logo" className="main-logo" />
           <img src={srmLogo} alt="SRM Logo" className="side-logo" />
         </motion.div>
 
