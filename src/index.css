@@ -1,0 +1,11 @@
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; }
+body {
+  margin: 0;
+  font-family: "Roboto", system-ui, -apple-system, Segoe UI, Arial, "Noto Sans";
+  font-style: italic;
+  color: #ffffff;
+  background: #0b0b0b;
+}
+a { color: #fff; text-decoration: none; }
