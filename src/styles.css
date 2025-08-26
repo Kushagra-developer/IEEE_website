@@ -656,3 +656,19 @@ a:hover svg {
 html, body, #root { height: 100%; }
 .app-shell { min-height: 100%; display: flex; flex-direction: column; }
 .app-main { flex: 1 0 auto; } /* content grows, footer stays at bottom */
+
+.inline-logo-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 380px;
+  margin-bottom: 12px;
+}
+
+
+
+.main-logo {
+  height: 64px;   /* bigger for main HackcelR8 logo */
+  width: auto;
+  object-fit: contain;
+}
