@@ -569,3 +569,18 @@ a:hover svg {
   text-decoration: none;
 }
 .contact-value:hover { text-decoration: underline; }
+
+.inline-logo-row {
+  display: flex;
+  align-items: baseline;   /* aligns logos with text baseline */
+  justify-content: center;
+  gap: 350px;               /* space between items */
+}
+
+.side-logo {
+  height: 60px;            /* very small logos */
+  width: auto;
+  object-fit: contain;
+  opacity: 0.95;
+  margin-top: 4px;         /* slight tweak if they look off-center */
+}
