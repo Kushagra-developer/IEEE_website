@@ -22,7 +22,7 @@ export default function App() {
           <Route path="/contact" element={<Contact />}/>
         </Routes>
       </main>
-      <Footer /> {/* 👈 sticky footer appears on every page */}
+      <Footer />
     </div>
   );
 }
